@@ -1,0 +1,311 @@
+
+* {
+  margin: 0px;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+body {
+  display: block;
+  overflow: visible !important;
+  -webkit-font-smoothing: antialiased;
+  color: rgb(42, 42, 42);
+  background-color: #e5e5e5 !important;
+}
+
+a:active {
+  color: inherit; /* クリック時の色を変えない */
+}
+
+.logo-link {
+  position: fixed;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px; /* 画像サイズに調整 */
+  height: 60px;
+  background: url("bau/img/YYY-logo.svg") no-repeat center;
+  background-size: contain;
+  z-index: 9999; /* 最前面に配置 */
+}
+
+.logo-link_about {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 135px; /* 画像サイズに調整 */
+  height: 135px;
+  background: url("bau/img/YYY_LOGOTYPE.svg") no-repeat center;
+  background-size: contain;
+  z-index: 9999; /* 最前面に配置 */
+}
+
+.logo-link:hover {
+  background: url("bau/img/YYY-logo.svg") no-repeat center;
+}
+
+
+.logo-link_about:hover {
+  background: url("bau/img/YYY_LOGOTYPE.svg") no-repeat center;
+}
+
+.logo-link:hover,
+.logo-link_about:hover {
+  background-size: contain;
+  opacity: 1; /* aタグの透明度はそのまま */
+  filter: blur(1px); /* 背景画像だけ透過 */
+}
+
+
+
+/* body::before {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px; 
+  height: 80px;
+  background: url("bau/img/YYY-logo.svg") no-repeat center;
+  background-size: contain;
+  z-index: 9999; 
+  pointer-events: none; 
+} */
+
+.gallery-container {
+  margin-top: 20px;
+  position:relative;
+  margin-left: 1rem;
+  margin-bottom: 0;
+  width:95vw;
+  height: 100%;
+  transform-origin: left top; 
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+ font-size :0.8rem; 
+ margin-bottom: 4px;
+ align-items: center;
+ cursor: pointer;
+}
+.details {
+  display: none;
+  opacity: 0;
+  margin-left: 10px;
+  transition: opacity 0.3s ease;
+}
+
+      /* ホバー時に一時的に表示 */
+      .title:hover .details {
+        display: inline;
+        opacity: 1;
+    }
+
+    /* クリックで表示を維持 */
+    .title.clicked .details {
+        display: inline;
+        opacity: 1;
+    }
+
+.gallery {
+  overflow: hidden; /* floatが効くように */
+  cursor: default;
+  margin-top: 0px;
+  margin-bottom: 40px;
+  margin-left: 0px;
+  position: relative;
+  /* background-color: pink; */
+}
+
+figure {
+  float: left;
+  align-content: center;
+  justify-content: center;
+  max-width: 310px;
+  margin: 0;
+  margin-right: 4px;
+  margin-left: 4px;
+  margin-bottom: 4px;
+  text-align: left;
+  opacity: 0; /* 初期状態は非表示 */
+  animation: fadeIn 0.2s ease-in forwards;
+}
+
+
+figure:last-child {
+  margin-bottom: 40px;
+}
+
+ .description, figcaption {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.7em;
+  color: #000;
+  margin-top: 4px;
+  width: 90vw;
+}
+
+.description {
+  position:absolute;
+  bottom: 0px;
+  left: 3px;
+  /* font-weight: bold; */
+}
+
+.gallery img {
+  display: block; /* 行間の余白を防ぐ */
+  width: 100%; /* fit to figure width*/
+  cursor: pointer;
+}
+
+.gallery video {
+  width: 100%;  /* 幅を親要素の幅に合わせる */
+  height: auto; /* 高さを自動で調整 */
+}
+/* 
+.gallery::after {
+  content: "";
+  display: table;
+  clear: both;
+} */
+
+/* figure fadein animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.gallery figure.visible {
+  opacity: 1; /* フェードイン後に表示される */
+}
+
+/* no animation with refreshing */
+figure.no-animation {
+  opacity: 1; 
+  animation: none; 
+}
+
+
+/* .gallery::after {
+  content: ""; 
+  position: absolute; 
+  bottom: 0; 
+  left: 0%; 
+  width: 100%; 
+  height: 1px; 
+  background-color: lightgray; 
+} */
+
+
+
+
+.button-contaier {
+  display: flex;
+  position: fixed;
+  bottom: 10px;
+  left: 15px;
+  width: 100%;
+  align-content: center;
+}
+
+.order-button {
+  margin-right: 4px
+}
+
+
+.grayscale {
+  display: flex;
+  margin-right: 2px;
+}
+
+#reset-button {
+  display: flex;
+  margin-left: 2px;
+}
+
+button {
+  border: black solid 0px;
+  flex-direction: column;
+  z-index: 9999;
+  background-color: #ffffff;
+  padding: 3px 9px;
+  border-radius: 4px;
+  color: rgb(42, 42, 42);
+}
+
+.hidden {
+  display: none;
+}
+
+
+.gray-0, .gray-10, .gray-40, .gray-80, .gray-100,
+.r-100, .g-100 button {
+  /* border: black solid 1px; */
+  height: 20px;
+  width: 0px;
+  border-radius: 0px;
+}
+
+.gray-0 {
+  background-color: rgb(255, 255, 255);
+}
+.gray-10 {
+  background-color: #e5e5e5;
+}
+.gray-40 {
+  background-color: rgb(162, 162, 162);
+}
+.gray-80 {
+  background-color: rgb(100, 100, 100);
+}
+.gray-100 {
+  background-color: #000000;
+}
+.r-100 {
+  background-color: rgb(255, 0, 0);
+}
+.g-100 {
+  background-color: rgb(0, 255, 0);
+}
+.b-100 {
+  background-color: rgb(0, 0, 255);
+}
+
+
+
+.logo {
+  position: relative;
+
+}
+
+.logo img {
+  position: absolute;
+  display: fixed;
+  bottom: 4px;
+  right: 50%;
+  top: 50%;
+  height: 40px;
+}
+
+.about_yyy {
+  font-size: 0.8rem;
+  z-index: 9999;
+  margin-left: 20px;
+  margin-top: 100vh;
+  margin-bottom: 50px;
+}
+
+
+.yyy_txt {
+ 
+}
+
