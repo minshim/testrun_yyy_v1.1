@@ -20,6 +20,11 @@ a:active {
   color: inherit; /* クリック時の色を変えない */
 }
 
+#Order:active,
+#Order:focus {
+  background-color: inherit !important;
+}
+
 .logo-link {
   position: fixed;
   top:50%;
