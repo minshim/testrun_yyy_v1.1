@@ -243,7 +243,10 @@ document.querySelectorAll("button").forEach(button => {
       "g-100": "#00FF00",
       "b-100": "#0000FF"
     };
-    document.body.style.backgroundColor = colors[colorClass] || "#ffffff";
+    // #Order ボタンがクリックされた場合は背景色を変更しない
+    if (button.id !== "Order") {
+      document.body.style.backgroundColor = colors[colorClass] || "#e5e5e5";
+    }
   });
 });
 
